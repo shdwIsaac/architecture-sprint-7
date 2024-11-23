@@ -1,0 +1,26 @@
+﻿apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-viewer
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "deployments", "configmaps", "namespaces"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-admin
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: resource-manager
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "deployments", "configmaps"]
+    verbs: ["create", "update", "delete", "list", "watch", "get"]
