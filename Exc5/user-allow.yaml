@@ -14,3 +14,11 @@ spec:
       ports:
         - protocol: TCP
           port: 80
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              role: front-end
+      ports:
+        - protocol: TCP
+          port: 80
